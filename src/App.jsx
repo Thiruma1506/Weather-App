@@ -71,6 +71,8 @@ function App() {
   const[citynotfound,setCitynotfound]=useState(false);
   const[loading,setLoading]=useState(false);
 
+  
+
   const search=async ()=>{
     setLoading(true);
     let url=`https://api.openweathermap.org/data/2.5/weather?q=${text}&appid=839bd62d2bce8a2efe5a4ef4b5012df7&units=Metric`;  
@@ -78,11 +80,23 @@ function App() {
     try{
       let res=await fetch(url);
       let data = await res.json();
-      //console.log(data);
+      console.log(data);
       if(data.cod === "404")
       {
         alert("404! City not found");
+        setCitynotfound(true);
+        setLoading(false);
+        return;
       }
+
+      setHumidity(data.main.humidity);
+      setWind(data.wind.speed);
+      setTemp(Math.floor(data.main.temp));
+      setCity(data.name);
+      setCountry(data.sys.country);
+      setLat(data.coord.lat);
+      setLog(data.coord.lon);
+
     }catch(error){
       console.error("An error occurred :",error.message);
     }finally{
