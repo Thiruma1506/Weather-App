@@ -112,6 +112,10 @@ function App() {
       setLat(data.coord.lat);
       setLog(data.coord.lon);
       const weathercode=data.weather[0].icon;
+      console.log(weathercode);
+      setIcon(Weathermap[weathercode] || clearIcon);
+      console.log(Weathermap[weathercode]);
+      setCitynotfound(false);
 
     }catch(error){
       console.error("An error occurred :",error.message);
