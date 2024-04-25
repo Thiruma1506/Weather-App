@@ -71,7 +71,22 @@ function App() {
   const[citynotfound,setCitynotfound]=useState(false);
   const[loading,setLoading]=useState(false);
 
-  
+  const Weathermap={
+    "01d":clearIcon,
+    "01n":clearIcon,
+    "02d":cloudIcon,
+    "02n":cloudIcon,
+    "03d":drizzleIcon,
+    "03n":drizzleIcon,
+    "04d":drizzleIcon,
+    "04n":drizzleIcon,
+    "09d":rainIcon,
+    "09n":rainIcon,
+    "10d":rainIcon,
+    "10n":rainIcon,
+    "13d":snowIcon,
+    "13n":snowIcon,
+  };
 
   const search=async ()=>{
     setLoading(true);
@@ -96,6 +111,7 @@ function App() {
       setCountry(data.sys.country);
       setLat(data.coord.lat);
       setLog(data.coord.lon);
+      const weathercode=data.weather[0].icon;
 
     }catch(error){
       console.error("An error occurred :",error.message);
