@@ -27,14 +27,14 @@ body{
     display: flex;
     width: 100%;
     align-items: center;
-    border: solid 3px green;
+    border: solid 3px gray;
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 25px;
     transition: all 0.2s ease-in-out;
 }
 .input--container:hover{
-    border: solid 3px rgb(151, 197, 76);
+    border: solid 3px black;
 }
 .cityinput{
     flex: 1;

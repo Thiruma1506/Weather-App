@@ -1,4 +1,4 @@
-import { useState } from 'react' 
+import { useEffect, useState } from 'react' 
 import './index.css';
 
 import searchIcon from "./assets/search.gif";
@@ -87,6 +87,10 @@ function App() {
     "13d":snowIcon,
     "13n":snowIcon,
   };
+
+   useEffect(()=>{
+     search();
+   }),[];
 
   const search=async ()=>{
     setLoading(true);
