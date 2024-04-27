@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react' 
+import { useState } from 'react' 
 import './index.css';
 
 import searchIcon from "./assets/search.gif";
@@ -9,6 +9,7 @@ import rainIcon from "./assets/rain.png";
 import windIcon from "./assets/windy.png";
 import snowIcon from "./assets/snow.png";
 import humidityIcon from "./assets/humid.png";
+import { useEffect } from 'react';
 
 
 
@@ -88,10 +89,6 @@ function App() {
     "13n":snowIcon,
   };
 
-   useEffect(()=>{
-     search();
-   }),[];
-
   const search=async ()=>{
     setLoading(true);
     let url=`https://api.openweathermap.org/data/2.5/weather?q=${text}&appid=839bd62d2bce8a2efe5a4ef4b5012df7&units=Metric`;  
@@ -138,6 +135,10 @@ function App() {
   const handleCity = (e) =>{
     setText(e.target.value);
   };
+
+  useEffect(()=>{
+    search();
+  },[]);
 
   return (
     <>
